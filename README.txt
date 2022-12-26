@@ -1,0 +1,1 @@
+This is a store management console application that is created with Visual Studio 2022. Here I practiced to use a dynamic allocation an C syntax to create program with a several files, that interacts with each other.
