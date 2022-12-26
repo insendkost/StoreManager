@@ -25,7 +25,7 @@ void getReadyProduct_no_choice(Product* pProduct, int index);
 void initProductFromReadyList(Product* pProduct, int choice);
 
 
-//void initProduct(Product* pProduct);
+
 void setProductName(Product* pProduct);
 void setType(Product* pProduct);
 void setAmount(Product* pProduct);
@@ -33,18 +33,13 @@ void setPrice(Product* pProduct);
 char* getBarcode();
 int barcodeCheck(char* input);
 int	checkProduct(const Product* pProduct,char* barcode);
-//Product* initProductList();
-
 
 
 void allocateMemoryProduct(Product* pProduct);
 void setProduct(Product* pProduct);
-//Product addCustomProduct();
+
 void createProduct(Product* pProduct);
 void getReadyProduct(Product* pProduct);
-//Product** initListOfProducts(Product** pListOfProducts, int* numOfProducts);
-
-void addNewProductToList(Product* pProduct, Product** listOfProducts, int numOfProducts);
 
 void freeProducts(Product** pProductList, int numOfProducts);
 

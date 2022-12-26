@@ -22,7 +22,6 @@ typedef struct shoppingcart {
 void initNewCart(ShoppingCart* pCart);
 void cartDetailsPrint(ShoppingCart* pCart);
 void printProductDetails(ShoppingItem* pItem);
-//ShoppingItem* getItemByName(ShoppingCart* pCart,const char* name);
 ShoppingItem* createItem(const char* name,const float price,const int count);
 
 void freeShoppingItems(ShoppingCart* pCart);

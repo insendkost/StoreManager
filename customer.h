@@ -18,12 +18,9 @@ void printListOfCustomers(Customer** listOfCustomers, int numOfCustomers);
 void printCustomersData(Customer* pCustomer);
 void printCustShoppingItems(Customer** pCustomerList, Product** productsList, int cust_number);
 
-//void initCustomer(Customer* pCustomer);
 Customer* initCustomerList();
 void initCustomer(Customer* pCustomer);
 
-
-//Customer** initListOfCustomers(Customer** listOfCutomers, int* pCustNumber);
 void shoppingCartPrint(Customer* pCustomer);
 int isCustomer(Customer* pCustomer, char* name);
 void freeCust(Customer* pCust);

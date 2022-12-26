@@ -56,7 +56,6 @@ Product* getProductDetails(Market* pMarket, int* count);
 void editStockProduct(Product* pProduct, int index);
 void proceedUserPayment(Market* pMarket);
 float getAmountToPay(Customer* pCustomer);
-//void fillShelfs(Market* pMarket);
 void printProductsListWithType(Market* pMarket, int choice);
 void freeMarket(Market* pMarket);
 void freeAddress(Address* pAddress);
