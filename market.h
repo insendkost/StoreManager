@@ -12,7 +12,7 @@ typedef struct market {
 	Customer** customersList;
 	int customersNum;
 	Product** productsList;
-	int productsNumber;
+	//int productsNumber;
 
 }Market;
 

@@ -1,6 +1,7 @@
 #ifndef _GENERAL_H_
 #define _GENERAL_H
 #define MAX_LEN 255
+#define ERROR_MESSAGE "ERROR: undefined"
 void greetings();
 void printMenu();
 void delimiter();

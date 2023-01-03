@@ -22,6 +22,7 @@
     <ClCompile Include="address.c" />
     <ClCompile Include="customer.c" />
     <ClCompile Include="general.c" />
+    <ClCompile Include="list.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="main_system.c" />
     <ClCompile Include="market.c" />
@@ -31,7 +32,9 @@
   <ItemGroup>
     <ClInclude Include="address.h" />
     <ClInclude Include="customer.h" />
+    <ClInclude Include="def.h" />
     <ClInclude Include="general.h" />
+    <ClInclude Include="list.h" />
     <ClInclude Include="main_system.h" />
     <ClInclude Include="market.h" />
     <ClInclude Include="product.h" />

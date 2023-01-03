@@ -15,7 +15,7 @@ typedef struct product {
 }Product;
 
 
-void printListOfProducts(Product** listOfProducts, int numOfProducts);
+void printListOfProducts(Product** listOfProducts);
 void printProduct(const Product* pProduct);
 
 Product initProduct(char* product_name, char* barcode, float price, productType product_type, int amount);

@@ -30,7 +30,7 @@ void initSuperMarket(Market* pMarket) {
 	pMarket->customersList = malloc(sizeof(Customer*));
 	pMarket->customersNum = 0;
 	pMarket->productsList = malloc(sizeof(Product*));
-	pMarket->productsNumber = 0;
+	//pMarket->productsNumber = 0;
 
 	if (pMarket->productsList != NULL) {
 		*(pMarket->productsList) = malloc(sizeof(Product*) + 1);
@@ -88,12 +88,12 @@ void printCustomersListHelper(Market* pMarket, int numOfcutomers)
 void printProductsList(Market* pMarket)
 {
 	printf("\nCurrent products in shop:");
-	if (pMarket->productsNumber == 0)
+	if (pMarket->productsList == NULL)
 	{
 		printf("\n\tEmpty list - add some products\n");
 		return;
 	}
-	printListOfProducts(pMarket->productsList,pMarket->productsNumber);
+	printListOfProducts(pMarket->productsList);
 	delimiter_star();
 }
 //################################################################################
@@ -136,31 +136,32 @@ void printMarketInfo(Market* pMarket) {
 //2
 void addProductToMarket(Market* pMarket)
 {
-	Product** productsList = pMarket->productsList;
-	int amount;
-	char input[10];
-	printf("How many products to add? \n");
-	printf("Input ->");
-	//scanf("%d",&amount);
-	fgets(input, 10, stdin);
-	if (sscanf(input, "%d", &amount) == 1)
-		if (productsList != NULL)
-		{
-			pMarket->productsList = (Product**)realloc(pMarket->productsList, (pMarket->productsNumber + amount) * sizeof(Product*));;
+	//Product** productsList = pMarket->productsList;
+	//int amount;
+	//char input[10];
+	//printf("How many products to add? \n");
+	//printf("Input ->");
+	////scanf("%d",&amount);
+	//fgets(input, 10, stdin);
+	//if (sscanf(input, "%d", &amount) == 1)
+	//	if (productsList != NULL)
+	//	{
+	//		pMarket->productsList = (Product**)realloc(pMarket->productsList, (pMarket->productsNumber + amount) * sizeof(Product*));;
 
-			if (pMarket->productsList != NULL)
-			{
-				int i = 0;
-				while (i < amount)
-				{
-					Product* pProduct = malloc(sizeof(Product) * 1);
-					setProduct(pProduct);
-					pMarket->productsList[pMarket->productsNumber] = pProduct;
-					pMarket->productsNumber++;
-					i++;
-				}
-			}
-		}
+	//		if (pMarket->productsList != NULL)
+	//		{
+	//			int i = 0;
+	//			while (i < amount)
+	//			{
+	//				Product* pProduct = malloc(sizeof(Product) * 1);
+	//				setProduct(pProduct);
+	//				pMarket->productsList[pMarket->productsNumber] = pProduct;
+	//				pMarket->productsNumber++;
+	//				i++;
+	//			}
+	//		}
+	//	}
+	printf(ERROR_MESSAGE);
 }
 //################################################################################
 //3
@@ -199,11 +200,11 @@ void startShoppingProcess(Market* pMarket)
 		printf("Error: no active customers found");
 		return;
 	}
-	if (pMarket->productsNumber == 0)
+	/*if (pMarket->productsNumber == 0)
 	{
 		printf("Error: no products found");
 		return;
-	}
+	}*/
 
 	Customer* pCustomer = createShoppingCustomer(pMarket);
 	if (pCustomer == NULL)
@@ -234,10 +235,10 @@ void printShoppingCartInfo(Market* pMarket)
 		printf("\nError: there is no shopping cards available\n");
 		return;
 	}
-	if (pMarket->productsNumber == 0)
+	/*if (pMarket->productsNumber == 0)
 	{
 		printf("\nError: no products in the market\n");
-	}
+	}*/
 	printCustShoppingItems(pMarket->customersList, pMarket->productsList, pMarket->customersNum);
 
 }
@@ -262,7 +263,7 @@ void proceedPayment(Market* pMarket)
 //7
 void printProductsListByType(Market* pMarket)
 {
-	if (pMarket->productsNumber == 0)
+	/*if (pMarket->productsNumber == 0)
 	{
 		printf("Error: empty market, no products, add some");
 		return;
@@ -278,8 +279,8 @@ void printProductsListByType(Market* pMarket)
 		return;
 	}
 
-	printProductsListWithType(pMarket, choice);
-
+	printProductsListWithType(pMarket, choice);*/
+	printf(ERROR_MESSAGE);
 
 }
 
@@ -289,7 +290,7 @@ void printProductsListByType(Market* pMarket)
 
 void addDefaultProducts(Market* pMarket)
 {
-	int num_of_products = 5;
+	/*int num_of_products = 5;
 	if (pMarket != NULL && pMarket->productsList != NULL)
 	{
 		Product** tmp = pMarket->productsList;
@@ -309,7 +310,8 @@ void addDefaultProducts(Market* pMarket)
 			}
 		}
 
-	}
+	}*/
+	printf(ERROR_MESSAGE);
 }
 
 
@@ -401,11 +403,12 @@ Customer* findCustomer(Market* pMarket, char* name)
 
 Product* findProductByBarcode(Market* pMarket, char* pBarcode)
 {
-	for (int i = 0; i < pMarket->productsNumber; i++)
+	/*for (int i = 0; i < pMarket->productsNumber; i++)
 	{
 		if (checkProduct(pMarket->productsList[i], pBarcode))
 			return pMarket->productsList[i];
-	}
+	}*/
+	printf(ERROR_MESSAGE);
 	return NULL;
 }
 
@@ -503,13 +506,14 @@ float getAmountToPay(Customer* pCustomer)
 //################################################################################
 void printProductsListWithType(Market* pMarket, int choice)
 {
-	int type = choice - 1;
+	/*int type = choice - 1;
 	delimiter_dash();
 	for (int i = 0; i < pMarket->productsNumber; i++)
 	{
 		if(pMarket->productsList[i]->product_type == type)
 		printProduct(pMarket->productsList[i]);
-	}
+	}*/
+	printf(ERROR_MESSAGE);
 	delimiter_dash();
 }
 //################################################################################
@@ -520,7 +524,7 @@ void freeMarket(Market* pMarket)
 	{
 		freeCust(pMarket->customersList[i]);
 	}
-	freeProducts(pMarket->productsList, pMarket->productsNumber);
+	//freeProducts(pMarket->productsList, pMarket->productsNumber);
 	freeAddress(&pMarket->address);
 	free(pMarket->marketName);
 }

@@ -127,9 +127,10 @@ void getReadyProduct(Product* pProduct) {
 }
 
 //################################################################################
-void printListOfProducts(Product** listOfProducts, int numOfProducts)
+void printListOfProducts(Product** listOfProducts)
 {
-	int total = numOfProducts;
+	/*int total = numOfProducts;
+
 	delimiter_dash();
 	for(int i =0; i< numOfProducts;i++)
 	{
@@ -149,7 +150,8 @@ void printListOfProducts(Product** listOfProducts, int numOfProducts)
 	}
 	else {
 		printf(" (products in market)\n");
-	}
+	}*/
+	printf(ERROR_MESSAGE);
 }
 //################################################################################
 
