@@ -4,6 +4,7 @@
 #include "address.h"
 #include "customer.h"
 #include "product.h"
+#include "list.h"
 
 typedef struct market {
 	
@@ -11,7 +12,7 @@ typedef struct market {
 	Address address;
 	Customer** customersList;
 	int customersNum;
-	Product** productsList;
+	LIST* productsList;
 	//int productsNumber;
 
 }Market;

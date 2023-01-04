@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include "general.h"
 #include "product.h"
+#include "list.h"
 //################################################################################
 
 //################################################################################
@@ -44,6 +45,15 @@ Product* initStockProductList(int size)
 		
 	return productsList;
 }
+//################################################################################
+
+Product getDefaultProduct()
+{
+	Product newProduct;
+	return newProduct = initProduct("default", "def1234", 0, Undefined, 0);
+}
+
+
 //################################################################################
 
 void getReadyProduct_no_choice(Product* pProduct,int index)
@@ -127,32 +137,32 @@ void getReadyProduct(Product* pProduct) {
 }
 
 //################################################################################
-void printListOfProducts(Product** listOfProducts)
-{
-	/*int total = numOfProducts;
-
-	delimiter_dash();
-	for(int i =0; i< numOfProducts;i++)
-	{
-		printf("\nProduct %d) - [%s] # Barcode: {%s}\n", i+ 1,
-			listOfProducts[i]->product_name, listOfProducts[i]->barcode);
-		printf("\nDetails: \t < %d ea >", listOfProducts[i]->amount);
-		printf("\t - %.2f ils", listOfProducts[i]->price);
-		printf("\t - Type:");
-		printTypeByNum(listOfProducts[i]->product_type);
-		short_delimiter_dash();
-	}
-	
-	printf("\nTotal: %d", total);
-	if (total == 1)
-	{
-		printf(" (product in market)\n");
-	}
-	else {
-		printf(" (products in market)\n");
-	}*/
-	printf(ERROR_MESSAGE);
-}
+//void printListOfProducts(LIST** listOfProducts)
+//{
+//	/*int total = numOfProducts;
+//
+//	delimiter_dash();
+//	for(int i =0; i< numOfProducts;i++)
+//	{
+//		printf("\nProduct %d) - [%s] # Barcode: {%s}\n", i+ 1,
+//			listOfProducts[i]->product_name, listOfProducts[i]->barcode);
+//		printf("\nDetails: \t < %d ea >", listOfProducts[i]->amount);
+//		printf("\t - %.2f ils", listOfProducts[i]->price);
+//		printf("\t - Type:");
+//		printTypeByNum(listOfProducts[i]->product_type);
+//		short_delimiter_dash();
+//	}
+//	
+//	printf("\nTotal: %d", total);
+//	if (total == 1)
+//	{
+//		printf(" (product in market)\n");
+//	}
+//	else {
+//		printf(" (products in market)\n");
+//	}*/
+//	printf(ERROR_MESSAGE);
+//}
 //################################################################################
 
 void printProduct(const Product* pProduct)

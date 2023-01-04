@@ -8,6 +8,8 @@
 
 typedef struct customer {
 	char* customer_name;
+	int shopTimes;
+	float totalSpend;
 	ShoppingCart* shp_cart;
 
 

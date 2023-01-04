@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include"main_system.h"
+#include"food_company_system.h"
 #include "market.h"
 #include "address.h"
 #include "customer.h"
@@ -25,23 +25,21 @@ void super_market_init()
 void main_menu(Market* pMarket)
 {
 	int choice = 0, flag = 0;
-	char input[3];
+	
 	initSuperMarket(pMarket); 
 	
 	
 	while (flag!=1)
 	{
 		printMenu();
+		choice = 0;
 		printf("\n[Choose your option] -> ");
-		fgets(input, 3, stdin);
-		
-		if(sscanf(input, "%d", &choice)==1)
-		{
+		choice = getUserChoice();
 
 			switch (choice)
 			{
 			case 0:
-
+				break;
 			case 1:
 				//1 - Print Market Info -
 				
@@ -92,12 +90,42 @@ void main_menu(Market* pMarket)
 				printf("\nFalse input\n");
 
 			}
-		}
-		else
-		{
-			printf("Error: Invalid input\n");
-		}
+		
+		
 	}
 	
+
+}
+
+int compare_cust_names(const void* a, const void* b)
+{
+	Customer* customer_a = (Customer*)a;
+	Customer* customer_b = (Customer*)b;
+	return strcmp(customer_a->customer_name, customer_b->customer_name);
+}
+
+void sort_customers_by_name(Market* pMarket)
+{
+	qsort(*pMarket->customersList,
+		pMarket->customersNum,
+		sizeof(Customer),
+		compare_cust_names);
+
+}
+
+int compare_cust_visits(const void* a, const void* b)
+{
+	Customer* customer_a = (Customer*)a;
+	Customer* customer_b = (Customer*)b;
+	return customer_a->shopTimes - customer_b->shopTimes;
+}
+
+
+void sort_customers_by_visits(Market* pMarket)
+{
+	qsort(*pMarket->customersList,
+		pMarket->customersNum,
+		sizeof(Customer),
+		compare_cust_visits);
 
 }

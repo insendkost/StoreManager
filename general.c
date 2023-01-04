@@ -190,15 +190,20 @@ char* getAlphabeticString()
 
 int getUserChoice()
 {
-	char input[10];
 	int choice;
-	
-	
-	printf("Enter your choice: ");
-	fgets(input, 10, stdin);
-	if (sscanf(input, "%d", &choice) == 1);
+	char input[3];
+	input[2] = '\0';
 
-	return choice;
+	while (1) {
+		if (scanf("%2s", input) == 1 && sscanf(input, "%d", &choice) == 1) {
+			input[2] = '\0';
+			return choice;
+		}
+		else {
+			printf("Invalid input. Please enter a valid choice: ");
+			fflush(stdin);
+		}
+	}
 }
 
 //################################################################################
@@ -387,3 +392,17 @@ void getName(char* marketName)
 
 
 }
+
+//################################################################################
+void f(void* element)
+{
+
+}
+//################################################################################
+
+void generalArrayFunction(void* array, size_t num, size_t items_size, void f(void* element))
+{
+
+}
+
+//################################################################################

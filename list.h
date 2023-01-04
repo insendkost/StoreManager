@@ -15,29 +15,30 @@
 // Node
 typedef struct node
 {
-	DATA_Product* key;
+	void* product;
 	struct node* next;
 }NODE;
 
 // List
 typedef struct
 {
-	NODE head;
+	NODE* head;
+	NODE* tail;
 }LIST;
 
 
 /*** Function prototypes ***/
 
-BOOL L_init(LIST* pList);					// create new list
+LIST* L_init(void* data);				// create new list
 
-NODE* L_insert(NODE* pNode, DATA_Product* Value);	// add new node after *pNode
+NODE* L_insert(LIST* list, void* data);	// add new node after *list
 
 BOOL L_delete(NODE* pNode);					// erase node after *pNode
 
-NODE* L_find(NODE* pNode, DATA_Product* Value);		// return a pointer to the node 
+NODE* L_find(NODE* pNode, DATA* Value);		// return a pointer to the node 
 
 BOOL L_free(LIST* pList);					// free list memory
 
-int L_print(LIST* pList);					// print the list content
+//int L_print(LIST* pList);					// print the list content
 
 #endif

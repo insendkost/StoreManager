@@ -8,18 +8,23 @@
 #include "list.h"
 
 
+
 //////////////////////////////////////////
 // Init
 // Aim:		create new list
 // Input:	pointer to the list structure
 // Output:	TRUE if succeeded
 //////////////////////////////////////////
-BOOL L_init(LIST* pList)
+LIST* L_init(void* data)
 {
-	if (pList == NULL) return False;	// no list to initialize
+	NODE* node = malloc(sizeof(NODE));
+	node->product = data;
+	node->next = NULL;
 
-	pList->head.next = NULL;
-	return True;
+	LIST* list = (LIST*)malloc(sizeof(LIST));
+	list->head = node;
+	list->tail = node;
+	return list;
 }
 
 
@@ -30,18 +35,14 @@ BOOL L_init(LIST* pList)
 //			a value to be stored in the new node
 // Output:	pointer to the new node
 /////////////////////////////////////////////////////////////////
-NODE* L_insert(NODE* pNode, DATA_Product* Value)
-{
-	NODE* tmp;
-
-	if (!pNode) return NULL;
-
-	tmp = (NODE*)malloc(sizeof(NODE));	// new node
-
+NODE* L_insert(LIST* list, void* data) {
+	NODE* tmp = (NODE*)malloc(sizeof(NODE));
 	if (tmp != NULL) {
-		tmp->key = Value;
-		tmp->next = pNode->next;
-		pNode->next = tmp;
+		tmp->product = data;
+		tmp->next = NULL;
+
+		list->tail->next = tmp;
+		list->tail = tmp;
 	}
 	return tmp;
 }
@@ -72,13 +73,13 @@ BOOL L_delete(NODE* pNode)
 //			a value to be found
 // Output:	pointer to the node containing the Value
 /////////////////////////////////////////////////////////
-NODE* L_find(NODE* pNode, DATA_Product* Value)
+NODE* L_find(NODE* pNode, DATA* Value)
 {
 	NODE* tmp;
 
 	if (!pNode) return NULL;
 
-	for (tmp = pNode; tmp && (tmp->key != Value); tmp = tmp->next);
+	for (tmp = pNode; tmp && (tmp->product != Value); tmp = tmp->next);
 	return tmp;
 }
 
@@ -95,7 +96,7 @@ BOOL L_free(LIST* pList)
 
 	if (!pList) return False;
 
-	for (tmp = &(pList->head); L_delete(tmp); );
+	for (tmp = (pList->head); L_delete(tmp); );
 	return True;
 }
 
@@ -106,16 +107,16 @@ BOOL L_free(LIST* pList)
 // Input:	pointer to the list structure
 // Output:	a number of the printed elements
 ////////////////////////////////////////////////
-int L_print(LIST* pList)
-{
-	NODE* tmp;
-	int		c = 0;
-
-	if (!pList) return 0;
-
-	printf("\n");
-	for (tmp = pList->head.next; tmp; tmp = tmp->next, c++)
-		printf(" %s ", tmp->key->product_name);
-	printf("\n");
-	return c;
-}
+//int L_print(LIST* pList)
+//{
+//	NODE* tmp;
+//	int		c = 0;
+//
+//	if (!pList) return 0;
+//
+//	printf("\n");
+//	for (tmp = pList->head->next; tmp; tmp = tmp->next, c++)
+//		printf(" %s ", tmp->product);
+//	printf("\n");
+//	return c;
+//}

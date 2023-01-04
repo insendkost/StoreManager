@@ -102,6 +102,8 @@ void initCustomer(Customer* pCustomer)
 	{
 		strcpy(pCustomer->customer_name, input);
 	}
+	pCustomer->shopTimes = 0;
+	pCustomer->totalSpend = 0;
 }
 //################################################################################
 

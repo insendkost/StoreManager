@@ -36,7 +36,7 @@
     <ClCompile Include="shopping.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main_system.c">
+    <ClCompile Include="food_company_system.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="list.c">
@@ -62,7 +62,7 @@
     <ClInclude Include="shopping.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="main_system.h">
+    <ClInclude Include="food_company_system.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="list.h">
@@ -71,5 +71,15 @@
     <ClInclude Include="def.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\Submisson_03\HW3_10010_2023A\Customers.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Submisson_03\HW3_10010_2023A\SuperMarket.bin">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -24,7 +24,7 @@
     <ClCompile Include="general.c" />
     <ClCompile Include="list.c" />
     <ClCompile Include="main.c" />
-    <ClCompile Include="main_system.c" />
+    <ClCompile Include="food_company_system.c" />
     <ClCompile Include="market.c" />
     <ClCompile Include="product.c" />
     <ClCompile Include="shopping.c" />
@@ -35,10 +35,16 @@
     <ClInclude Include="def.h" />
     <ClInclude Include="general.h" />
     <ClInclude Include="list.h" />
-    <ClInclude Include="main_system.h" />
+    <ClInclude Include="food_company_system.h" />
     <ClInclude Include="market.h" />
     <ClInclude Include="product.h" />
     <ClInclude Include="shopping.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\Submisson_03\HW3_10010_2023A\Customers.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Submisson_03\HW3_10010_2023A\SuperMarket.bin" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

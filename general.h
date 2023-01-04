@@ -29,5 +29,10 @@ void stockProductsMenu();
 void str_split(char** dest,char* source, int* items_num, const char* del);
 char* str_allocate(char* pStr);
 void getName(char* marketName);
+
+//generic function
+void f(void* element);
+void generalArrayFunction(void* array,size_t num, size_t items_size,void f(void* element));
+
 #endif // !_GENERAL_H_
 

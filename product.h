@@ -15,12 +15,12 @@ typedef struct product {
 }Product;
 
 
-void printListOfProducts(Product** listOfProducts);
+//void printListOfProducts(Product* listOfProducts);
 void printProduct(const Product* pProduct);
 
 Product initProduct(char* product_name, char* barcode, float price, productType product_type, int amount);
 Product* initStockProductList(int size);
-
+Product getDefaultProduct();
 void getReadyProduct_no_choice(Product* pProduct, int index);
 void initProductFromReadyList(Product* pProduct, int choice);
 

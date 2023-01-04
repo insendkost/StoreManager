@@ -8,6 +8,7 @@
 #include "customer.h"
 #include "product.h"
 #include "general.h"
+#include "list.h"
 
 //################################################################################
 //			START
@@ -29,13 +30,16 @@ void initSuperMarket(Market* pMarket) {
 	getName(pMarket->marketName);
 	pMarket->customersList = malloc(sizeof(Customer*));
 	pMarket->customersNum = 0;
-	pMarket->productsList = malloc(sizeof(Product*));
+	//pMarket->productsList = malloc(sizeof(LIST));
+	Product def = getDefaultProduct();
+	pMarket->productsList = L_init(&def);
+	
 	//pMarket->productsNumber = 0;
 
-	if (pMarket->productsList != NULL) {
-		*(pMarket->productsList) = malloc(sizeof(Product*) + 1);
+	/*if (pMarket->productsList != NULL) {
+		*(pMarket->productsList) = malloc(sizeof(LIST) + 1);
 		addDefaultProducts(pMarket);
-	}
+	}*/
 	if (pMarket->customersList != NULL) {
 		*(pMarket->customersList) = malloc(sizeof(Customer*) + 1);
 	}
@@ -93,7 +97,7 @@ void printProductsList(Market* pMarket)
 		printf("\n\tEmpty list - add some products\n");
 		return;
 	}
-	printListOfProducts(pMarket->productsList);
+	//printListOfProducts(pMarket->productsList);
 	delimiter_star();
 }
 //################################################################################
@@ -161,7 +165,21 @@ void addProductToMarket(Market* pMarket)
 	//			}
 	//		}
 	//	}
-	printf(ERROR_MESSAGE);
+	//printf(ERROR_MESSAGE);
+
+	LIST* ptrProdList = pMarket->productsList;
+	NODE* new_node = (NODE*)malloc(sizeof(NODE));
+	//(pMarket->productsList->head) = *(new_node);
+	
+	Product new_product;
+	Product* ptr_new_product;
+	ptr_new_product = &new_product;
+	createProduct(ptr_new_product);
+	L_insert(pMarket->productsList, (Product*)ptr_new_product);
+
+
+
+	
 }
 //################################################################################
 //3
@@ -239,7 +257,7 @@ void printShoppingCartInfo(Market* pMarket)
 	{
 		printf("\nError: no products in the market\n");
 	}*/
-	printCustShoppingItems(pMarket->customersList, pMarket->productsList, pMarket->customersNum);
+	//printCustShoppingItems(pMarket->customersList, pMarket->productsList, pMarket->customersNum);
 
 }
 //################################################################################
@@ -318,41 +336,42 @@ void addDefaultProducts(Market* pMarket)
 //################################################################################
 void fillCart(Market* pMarket, ShoppingCart* pCart)
 {
-	printProductsList(pMarket);
-	//choose a product from list
-	int choice = getUserChoice();
-	//cancel option - 0
-	if (choice == 0)
-		return;
-	int amount = getUserChoice(); //how many products we buy
-	Product* pProduct = pMarket->productsList[choice - 1]; //-1 because all indexes are printed aka i+1
-	if (!pProduct)
-	{
-		printf("\nError:can't reach product, first add it to the system\n");
-		return;
-	}
-	//lets add this product to shopping cart
-	pCart->shopping_items_list = calloc((((size_t)pCart->shopping_items_num) + 1), sizeof(ShoppingItem*));
-	ShoppingItem** shoppingList = pCart->shopping_items_list;
-  	if(shoppingList)
-	{
-		int current_index = 0;
-		current_index = pCart->shopping_items_num;
-		ShoppingItem* shoppingItem = shoppingList[current_index];
-		if (shoppingItem == NULL)
-		{
-			shoppingItem = malloc(sizeof(ShoppingItem));
-			addNewItemToCart(pProduct, shoppingItem, shoppingList, current_index, amount);
-		}
-		else
-		{
-			ShoppingItem** tmp = NULL;
-			tmp = realloc(pCart->shopping_items_list, sizeof(shoppingList) * (current_index + 1));
-			shoppingList = tmp;
-			addNewItemToCart(pProduct, shoppingItem, shoppingList, current_index, amount);
-		}
-		pCart->shopping_items_num++;
-	}
+	//printProductsList(pMarket);
+	////choose a product from list
+	//int choice = getUserChoice();
+	////cancel option - 0
+	//if (choice == 0)
+	//	return;
+	//int amount = getUserChoice(); //how many products we buy
+	//Product* pProduct = pMarket->productsList[choice - 1]; //-1 because all indexes are printed aka i+1
+	//if (!pProduct)
+	//{
+	//	printf("\nError:can't reach product, first add it to the system\n");
+	//	return;
+	//}
+	////lets add this product to shopping cart
+	//pCart->shopping_items_list = calloc((((size_t)pCart->shopping_items_num) + 1), sizeof(ShoppingItem*));
+	//ShoppingItem** shoppingList = pCart->shopping_items_list;
+ // 	if(shoppingList)
+	//{
+	//	int current_index = 0;
+	//	current_index = pCart->shopping_items_num;
+	//	ShoppingItem* shoppingItem = shoppingList[current_index];
+	//	if (shoppingItem == NULL)
+	//	{
+	//		shoppingItem = malloc(sizeof(ShoppingItem));
+	//		addNewItemToCart(pProduct, shoppingItem, shoppingList, current_index, amount);
+	//	}
+	//	else
+	//	{
+	//		ShoppingItem** tmp = NULL;
+	//		tmp = realloc(pCart->shopping_items_list, sizeof(shoppingList) * (current_index + 1));
+	//		shoppingList = tmp;
+	//		addNewItemToCart(pProduct, shoppingItem, shoppingList, current_index, amount);
+	//	}
+	//	pCart->shopping_items_num++;
+	//}
+	printf(ERROR_MESSAGE);
 
 }
 //################################################################################
